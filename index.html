@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Player</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .player {
+      max-width: 400px;
+      margin: auto;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      font-size: 16px;
+    }
+    option {
+      background: #2c5364;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎵 My Music Player</h1>
+
+  <div class="player">
+    <select id="trackList">
+      <option value="Dupatta Tera Nau Rang Da - Partner 128 Kbps.mp3">Dupatta Tera Nau Rang Da</option>
+      <option value="Gal Ban Gayi.mp3">Gal Ban Gayi</option>
+      <option value="Gallan Goodiyaan - Dil Dhadakne Do 320 Kbps.mp3">Gallan Goodiyaan</option>
+      <option value="London Thumakda - Queen 320 Kbps.mp3">London Thumakda</option>
+      <option value="Main Aai Hoon Up Bihar Lootne - Shool.mp3">Main Aai Hoon UP Bihar Lootne</option>
+      <option value="Namak - Omkara 128 Kbps.mp3">Namak - Omkara</option>
+    </select>
+
+    <audio id="audioPlayer" controls>
+      <source id="audioSource" src="Dupatta Tera Nau Rang Da - Partner 128 Kbps.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const trackList = document.getElementById("trackList");
+    const audioPlayer = document.getElementById("audioPlayer");
+    const audioSource = document.getElementById("audioSource");
+
+    trackList.addEventListener("change", function () {
+      audioSource.src = this.value;
+      audioPlayer.load();
+      audioPlayer.play();
+    });
+  </script>
+
+</body>
+</html>
 
